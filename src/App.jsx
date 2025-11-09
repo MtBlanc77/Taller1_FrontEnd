@@ -1,21 +1,18 @@
 import { Routes, Route } from 'react-router-dom';
-
-
-function Home() {
-  return <h1>Página Inicio</h1>;
-}
-
-function Otro() {
-  return <h1>Página Otro</h1>;
-}
+import MainContainer from './containers/MainContainer';
+import Home from './pages/Home';
+import RegistrarLectura from './pages/RegistrarLectura';
+import Mediciones from './pages/Mediciones';
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/otro" element={<Otro />} />
+      <Route path="/" element={<MainContainer />}>
+        <Route index element={<Home />} />
+        <Route path="registrar" element={<RegistrarLectura />} />
+        <Route path="mediciones" element={<Mediciones />} />
+      </Route>
     </Routes>
   );
 }
 export default App;
-

@@ -1,2 +1,50 @@
 //Importar bootstrap
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+.my-menubar {
+  display: flex !important;
+  width: 100%;
+  justify-content: space-between;
+  background-color: #1976d2 !important;
+  border-radius: 0 0 8px 8px !important;
+}
+
+/* Contenedor general de los items (menú) */
+.my-menubar .p-menubar-menu {
+  flex-grow: 1;
+  display: flex !important;
+  justify-content: space-around !important;
+}
+
+/* Contenedor que contiene todo el navbar */
+.my-menubar .p-menubar-root {
+  width: 100% !important;
+  display: flex;
+  align-items: center;
+}
+
+/* Contenedor de la parte inicial (logo + nombre) */
+.my-menubar .p-menubar-start {
+  flex-grow: 0;
+  margin-right: 2rem;
+}
+
+/* Estilos para links (texto+iconos) */
+
+.my-menubar .p-menuitem-link .p-menuitem-text,
+.my-menubar .p-menuitem-link .p-menuitem-icon {
+  color: #000 !important;
+  font-weight: 600;
+}
+
+/* Icono amarillo del logo */
+.my-menubar .p-menubar-start .pi-lightbulb {
+  color: yellow !important;
+}
+
+/* Hover */
+.my-menubar .p-menuitem-link:hover,
+.my-menubar .p-menuitem-link:hover .p-menuitem-text,
+.my-menubar .p-menuitem-link:hover .p-menuitem-icon {
+  color: #ffa500 !important;
+}
