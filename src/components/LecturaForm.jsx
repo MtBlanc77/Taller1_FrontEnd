@@ -20,6 +20,12 @@ const tiposMedida = [
   { name: 'Temperatura', code: 'temperatura' },
 ];
 
+/**
+ * Formulario para registrar una nueva lectura de medidor.
+ * Valida los campos requeridos y, si todo es válido, guarda la medición
+ * en localStorage y redirige a la página de "Mediciones".
+*/
+
 function LecturaForm() {
   const [fecha, setFecha] = useState(null);
   const [medidor, setMedidor] = useState(null);
@@ -29,28 +35,45 @@ function LecturaForm() {
   const toast = useRef(null);
   const navigate = useNavigate();
 
+/**
+ * Realiza la validación de los campos del formulario.
+ * Si hay errores, muestra un único Toast con la lista de mensajes.
+*/
+
   const validate = () => {
-    if (!fecha) {
-      toast.current.show({ severity: 'warn', summary: 'Error', detail: 'Debe seleccionar fecha y hora', life: 3000 });
-      return false;
-    }
-    if (!medidor) {
-      toast.current.show({ severity: 'warn', summary: 'Error', detail: 'Debe seleccionar un medidor', life: 3000 });
-      return false;
-    }
-    if (!direccion || direccion.trim() === '') {
-      toast.current.show({ severity: 'warn', summary: 'Error', detail: 'Debe ingresar la dirección', life: 3000 });
-      return false;
-    }
-    if (valor === null || valor <= 0 || valor > 500) {
-      toast.current.show({ severity: 'warn', summary: 'Error', detail: 'Valor debe ser entre 1 y 500', life: 3000 });
-      return false;
-    }
-    if (!tipoMedida) {
-      toast.current.show({ severity: 'warn', summary: 'Error', detail: 'Debe seleccionar un tipo de medida', life: 3000 });
-      return false;
-    }
-    return true;
+  const errores = [];
+
+  if (!fecha) {
+    errores.push('Debe seleccionar fecha y hora');
+  }
+  if (!medidor) {
+    errores.push('Debe seleccionar un medidor');
+  }
+  if (!direccion || direccion.trim() === '') {
+    errores.push('Debe ingresar la dirección');
+  }
+  if (valor === null || valor <= 0 || valor > 500) {
+    errores.push('Valor debe ser entre 1 y 500');
+  }
+  if (!tipoMedida) {
+    errores.push('Debe seleccionar un tipo de medida');
+  }
+
+  if (errores.length > 0) {
+    toast.current.show({
+      severity: 'warn',
+      summary: 'Errores de validación',
+      detail: (
+        <ul style={{ margin: 0, paddingLeft: '1.2rem' }}>
+          {errores.map((er, idx) => <li key={idx}>{er}</li>)}
+        </ul>
+      ),
+      life: 4000
+    });
+    return false;
+  }
+
+  return true;
   };
 
   const handleSubmit = (e) => {

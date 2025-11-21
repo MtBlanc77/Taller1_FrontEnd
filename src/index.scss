@@ -1,50 +1,114 @@
-//Importar bootstrap
-@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+/* ----------------------------------------
+   Paleta 
+----------------------------------------- */
+$primary: #a78bfa;        
+$primary-dark: #7c3aed;   
+$primary-text: #111827;   
+$accent: #fbbf24;         
+
+/* ----------------------------------------
+   NAVBAR MENUBAR
+----------------------------------------- */
 
 .my-menubar {
   display: flex !important;
   width: 100%;
   justify-content: space-between;
-  background-color: #1976d2 !important;
-  border-radius: 0 0 8px 8px !important;
+  background-color: $primary !important;
+  border-radius: 12px;               
+  padding: 0.6rem 1.5rem;            
+  box-sizing: border-box;
 }
 
-/* Contenedor general de los items (menú) */
-.my-menubar .p-menubar-menu {
-  flex-grow: 1;
-  display: flex !important;
-  justify-content: space-around !important;
-}
-
-/* Contenedor que contiene todo el navbar */
+/* Contenedor interno del Menubar */
 .my-menubar .p-menubar-root {
   width: 100% !important;
   display: flex;
-  align-items: center;
+  align-items: center;               
+  padding: 0;                        
 }
 
-/* Contenedor de la parte inicial (logo + nombre) */
+/* Zona del logo */
 .my-menubar .p-menubar-start {
-  flex-grow: 0;
+  display: flex;
+  align-items: center;               
+  gap: 0.5rem;
   margin-right: 2rem;
 }
 
-/* Estilos para links (texto+iconos) */
+/* Items de navegación */
+.my-menubar .p-menubar-menu {
+  flex-grow: 1;
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center;
+}
 
+/* Link del Menubar */
+.my-menubar .p-menuitem-link {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
+  text-decoration: none !important;  
+  box-shadow: none !important;
+}
+
+.my-menubar .p-menuitem-link:focus {
+  outline: none !important;
+  box-shadow: none !important;       
+}
+
+/* Texto e iconos del menú */
 .my-menubar .p-menuitem-link .p-menuitem-text,
 .my-menubar .p-menuitem-link .p-menuitem-icon {
-  color: #000 !important;
+  color: $primary-text !important;
   font-weight: 600;
 }
 
 /* Icono amarillo del logo */
 .my-menubar .p-menubar-start .pi-lightbulb {
-  color: yellow !important;
+  color: $accent !important;
+  font-size: 1.6rem;
+  line-height: 1;
 }
 
 /* Hover */
 .my-menubar .p-menuitem-link:hover,
 .my-menubar .p-menuitem-link:hover .p-menuitem-text,
 .my-menubar .p-menuitem-link:hover .p-menuitem-icon {
-  color: #ffa500 !important;
+  color: $primary-dark !important;
+}
+
+/* ----------------------------------------
+   BOTÓN DE FILTRAR 
+----------------------------------------- */
+
+.p-button {
+  background: $primary !important;
+  border: 1px solid $primary !important;
+  color: $primary-text !important;
+  font-weight: 600;
+  border-radius: 6px !important;
+}
+
+.p-button:hover {
+  background: $primary-dark !important;
+  border-color: $primary-dark !important;
+  color: #ffffff !important;
+}
+
+.p-button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* ----------------------------------------
+   CONTENEDOR PRINCIPAL
+----------------------------------------- */
+
+.main-container {
+  background: #faf7ff;      
+  min-height: 100vh;
+  padding: 2rem;
 }

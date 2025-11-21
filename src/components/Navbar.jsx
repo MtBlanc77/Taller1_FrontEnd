@@ -3,6 +3,13 @@ import { Menubar } from 'primereact/menubar';
 import { Link } from 'react-router-dom';
 import '../index.scss';
 
+/**
+ * Barra de navegación principal de la aplicación.
+ * Utiliza Menubar de PrimeReact y React Router para navegar entre:
+ * - Home
+ * - Registrar Lectura
+ * - Ver Mediciones
+*/
 
 function Navbar() {
   const items = [
@@ -41,7 +48,7 @@ function Navbar() {
   const start = (
     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', paddingLeft: '0.75rem' }}>
       <i className="pi pi-lightbulb" style={{ color: 'yellow', fontSize: '1.8rem' }}></i>
-      <span style={{ fontWeight: '700', fontSize: '1.3rem', color: '#000' }}>Sanquinta</span>
+      <span style={{ fontWeight: '700', fontSize: '1.3rem', color: '#000' }}>SanQuinta</span>
     </div>
   );
 

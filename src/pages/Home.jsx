@@ -5,7 +5,7 @@ function Home() {
     <>
       <Navbar />
       {/* Contenido específico introductorio */}
-      <h2>Bienvenido!</h2>
+      <h2>Bienvenido a SanQuinta!</h2>
     </>
   );
 }

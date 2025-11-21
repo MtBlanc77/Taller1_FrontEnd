@@ -2,6 +2,16 @@ import React from 'react';
 import { Dropdown } from 'primereact/dropdown';
 import { Button } from 'primereact/button';
 
+/**
+ * Filtro desplegable para seleccionar el tipo de medición a mostrar.
+ * Utiliza Dropdown y Button de PrimeReact.
+ * Opciones de filtro:
+ * - Todos
+ * - Kilowatts
+ * - Watts
+ * - Temperatura
+*/
+
 const opcionesFiltro = [
   { label: 'Todos', value: '' },
   { label: 'Kilowatts', value: 'kilowatts' },
@@ -19,7 +29,7 @@ function FiltroDropdown({ filtro, setFiltro, onFiltrar }) {
         options={opcionesFiltro}
         optionLabel="label"
         onChange={(e) => {
-          setFiltro(e.value);  // SIEMPRE e.value debe ser string o ''
+          setFiltro(e.value);  
           console.log('Filtro cambiado a:', e.value, typeof e.value);
         }}
         className="p-dropdown"
